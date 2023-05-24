@@ -27,4 +27,3 @@ console.log(postStringify) // {"city":"Moscow","popular":true,"country":"Russia"
 // Конвертация JSON в объект:
 const postParse = JSON.parse(postStringify)
 console.log(postParse) // { city: 'Moscow', popular: true, country: 'Russia' } - объект
-
