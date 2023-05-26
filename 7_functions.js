@@ -1,5 +1,7 @@
 
 // ФУНКЦИИ
+// Одна функция должна выполнять одну задачу.
+// Не рекомендуется изменять внешние относительно функции переменные.
 
 function nameFunction(parameter1, parameter2) {} // структура функции
 // Значения parameter1, parameter2 определеются в момент вызова функции. 
@@ -45,4 +47,46 @@ function functionWithReturn(a, b) {
 
 console.log(functionWithReturn(1, 2)) // 4
 
-// 03:00
+// Передача значения по ссылке
+const personOne = {
+    name: 'Nick',
+    age: 20
+}
+
+function increasePersonAgeBad(person) {
+    person.age += 1
+    return person
+}
+
+increasePersonAgeBad(personOne) // передача объекта по ссылке
+console.log(personOne.age) // 21
+
+// Внутри функции increasePersonAgeBad() объект personOne мутирует. Это не рекомендуется делать!
+// Правильный пример (с созданием копии объекта):
+const personTwo = {
+    name: 'Mike',
+    age: 20
+}
+
+function  increasePersonAgeWell(person) {
+    const updatePerson = Object.assign({}, person)
+    updatePerson.age += 1
+    return updatePerson
+}
+
+const updatePersonTwo = increasePersonAgeWell(personTwo)
+console.log(personTwo) // { name: 'Mike', age: 20 }
+console.log(updatePersonTwo) // { name: 'Mike', age: 21 }
+
+
+// CallBack ФУНКЦИИ
+// CallBAck-функция - функция, которая вызывается в теле другой функции (передается как аргумент в другую функцию).
+
+function printMyName() {
+    console.log('Jason'
+    )
+}
+
+setTimeout(printMyName, 1000)
+// printMyName() - CallBack-функция
+// setTimeOut - встроенная в JS функция
