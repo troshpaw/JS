@@ -6,3 +6,4 @@ for (let i = 0; i < 5; i ++) {
     console.log(i)
 }
 
+// 07:31:10
