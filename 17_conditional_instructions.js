@@ -101,4 +101,44 @@ switch (month) {
 }
 
 // 5. Тернарный оператор:
-// 07:08:18
+// Конструкция с тернарным оператором - выражение => возвращает значение.
+// Синтаксис: Условие ? Выражение_1 : Выражение_2
+// Если условие правдиво, то возвращается результат Выражения_1.
+// Если условие ложно, то возвращается результат Выражения_2.
+/* Предпочтительный формат записи:
+Условие
+    ? Выражение_1
+    : Выражение_2
+*/
+
+// Пример 1:
+const value = 11
+
+value
+    ? console.log('Условие истинно')
+    : console.log('Условие ложно')
+
+// Пример 2:
+const value1 = 11
+const value2 = 25
+
+const myFunction1 = (value1, value2) => {
+    console.log(value1 + value2)
+    return value1 + value2
+}
+
+const myFunction2 = () => {
+    console.log(`Одно из значений пременных (${value1} или ${value2}) ложно.`)
+}
+
+value1 && value2
+    ? myFunction1(value1, value2)
+    : myFunction2()
+
+// Пример 3:
+let value3 = 11
+console.log(value3 >= 0 ? value3 : -value3) // 11
+
+value3 = -5
+const res = value3 >= 0 ? value3 : -value3
+console.log(res) // 5
