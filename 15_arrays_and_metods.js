@@ -58,7 +58,7 @@ console.log(myArrayFour.length) // 10
 console.log(myArrayFour) // [ 1, true, 'a', 'Hello', <5 empty items>, 'Bye' ]
 
 // Добавление новых элементов в массив (с помощью методов):
-// Методы массивов - функции высшего порядка в массивах (или функции / методы прототипов)
+// МЕТОДЫ МАССИВОВ - функции высшего порядка в массивах (или функции / методы прототипов)
 myArrayFour.push('The end!') // добавление нового элемента в конец массива
 console.log(myArrayFour) // [ 1, true, 'a', 'Hello', <5 empty items>, 'Bye', 'The end!' ]
 
@@ -80,7 +80,7 @@ console.log(removedElement) // The end!
 const myArr = [1, 2, 5]
 
 const resultMetod = myArr.forEach(el => console.log(el * 2)) 
-// аргументом функции выступают элементы массива по порядку, el - имя массив (значением выступают элементы)
+// В вызываемой функции аргумент (el или любое другое название переменной) - содержимое элемента массива
 // Вывод в консоли: 2, 4, 10
 
 console.log(resultMetod) // undefined
