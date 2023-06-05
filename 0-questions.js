@@ -7,7 +7,7 @@
 // 3. Отличие инструкций от выражений (повторить в 14_instructions.js)
 // 4. Деструктуризация в функциях (16_destructurization.js)
 // 5. Встроенная функция (объект) Object (и его свойства, например, Object.keys(), Object.values()).
-
+// 6. Метод массивов reduce.
 
 // Notes:
 /* 1. Для перебора объектов можно использовать и Object.keys(), Object.values() и forEach.
