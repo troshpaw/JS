@@ -92,4 +92,17 @@ console.log(myArray) // NumbersArray(3) [ 2, 5, 7 ]
 console.log(myArray.sum()) // 14
 
 // Метод sum() доступен как метод любого экземпляра класса NumbersArray
-// 09:30
+// Цепочка прототипов в данном примере: myArray -> NumbersArray -> Array -> Object
+
+// Скрытое свойство __proto__
+console.log(Comment.prototype === firstComment.__proto__) // true
+console.log(NumbersArray.prototype === myArray.__proto__) // true
+
+console.log(Object.prototype === firstComment.__proto__) // false
+
+// Строки и числа ведут себя как объекты:
+const myName = 'Jason'
+myName.toUpperCase() // JASON
+
+const mySurname = new String('Statham')
+mySurname.toUpperCase() // STATHAM
