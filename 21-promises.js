@@ -67,4 +67,110 @@ getData('https://jsonplaceholder.typicode.com/todos/10')
 
 
 // ASYNC/AWAIT
-// 10:23:28
+// ASYNC (асинхронная функция) - это функция, которая возвращает промис.
+
+// Пример объявления:
+async function asyncFnExample() {
+    // всегда возыращает промис
+}
+
+// Пример 1:
+const asyncFn = async () => {
+    return 'Success!'
+}
+
+asyncFn()
+    .then(value => console.log(value))
+
+// Пример 2:
+const asyncFnWithError = async () => {
+    throw new Error('This is error!')
+}
+
+asyncFnWithError()
+    .then(value => console.log(value))
+    .catch(error => console.log(error.message))
+
+
+// AWAIT (используется только в асинхронных функциях)
+// С помощью ключевого слова await можно ожидать результата другого промиса.
+
+// Пример:
+const asyncFnWithAwait = async () => {
+    // await <Promise> // ожидание результатов промиса  
+}
+
+asyncFnWithAwait()
+
+// Пример 2:
+const timerPromise = () => 
+    new Promise((resolve, reject) => 
+        setTimeout(() => resolve(), 2000))
+
+const asyncFnFour = async () => {
+    console.log('Timer starts')
+    const startTime = performance.now()
+    await timerPromise()
+    const endTime = performance.now()
+    console.log('Timer ended', endTime - startTime)
+}
+
+asyncFnFour()
+
+// ПЕРЕХОД С ПРОМИСОВ НА ASYNC/AWAIT
+const getDataTwo = (url) => 
+    new Promise((resolve, reject) => 
+        fetch(url)
+            .then(response => response.json())
+            .then(json => resolve(json))
+            .catch(error => reject(error))
+    )
+
+getDataTwo('https://jsonplaceholder.typicode.com/todos/10')
+    .then(data => console.log(data))
+    .catch(error => console.log(error.message))
+
+// =>
+
+const getDataThree = async (url) => {
+    const res = await fetch(url)
+    const json = await res.json()
+    return json
+}
+
+getDataThree('https://jsonplaceholder.typicode.com/todos/10')
+    .then(data => console.log(data))
+    .catch(error => console.log(error.message))
+
+// =>
+
+const getDataFour = async (url) => {
+    const res = await fetch(url)
+    const json = await res.json()
+    return json
+}
+
+const url = 'https://jsonplaceholder.typicode.com/todos/10'
+
+const data = await getDataFour(url) // работает только в браузере   
+
+// =>
+
+const getDataFive = async (url) => {
+    const res = await fetch(url)
+    const json = await res.json()
+    return json
+}
+
+try {
+    const data = await getDataFive(url) // работает только в браузере
+    console.log(data)
+} catch (error) { // обработка ошибок
+    console.log(error.message)
+}
+
+// Выводы:
+// 1. async/await - синтаксическая надстройка над промисами.
+// 2. await синтаксис возможен только внутри асинхронных функций.
+// 3. async функция всегда возвращает Promise.
+// 4. async функция ожидает результата иснтрукции await и не выполняет последующие инчтрукции.
